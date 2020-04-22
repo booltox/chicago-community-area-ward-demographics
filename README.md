@@ -17,6 +17,7 @@ You can view the generated dataset [here](finished/population_by_ward.csv).
 
 ### Requirements
 
+- [Git](https://www.atlassian.com/git/tutorials/install-git)
 - [Docker](https://www.docker.com/products/docker-desktop)
 
 ### Setup
@@ -25,7 +26,7 @@ Navigate in your terminal to the directory in which you'd like this code to
 live, then clone and `cd` into this repository:
 
 ```bash
-git clone && cd chicago-community-area-ward-demographics
+git clone https://github.com/datamade/chicago-community-area-ward-demographics.git && cd chicago-community-area-ward-demographics
 ```
 
 ### Usage
