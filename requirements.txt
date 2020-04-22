@@ -1,0 +1,2 @@
+GDAL>=2.2.4
+census_area==0.3.2

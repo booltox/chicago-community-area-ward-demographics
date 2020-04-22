@@ -1,0 +1,19 @@
+version: '2.4'
+
+services:
+  data:
+    image: ccawd:latest
+    container_name: ccawd
+    restart: always
+    build: .
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+    # Update these variables if you want to generate demographics from a
+    # different set of community areas and wards.
+    environment:
+      - COMMUNITY_AREA=Hermosa  # Enclose name "in quotes" if it contains a space
+      - WARDS=26,31,35,36
+      - ACS_TABLES=B01003_001E  # See https://api.census.gov/data/2018/acs/acs5/variables.html for variable definitions
+    command: make -e
