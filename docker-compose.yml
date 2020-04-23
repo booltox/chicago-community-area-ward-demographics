@@ -15,5 +15,5 @@ services:
     environment:
       - COMMUNITY_AREA=Hermosa  # Enclose name "in quotes" if it contains a space
       - WARDS=26,31,35,36
-      - ACS_TABLES=B01003_001E  # See https://api.census.gov/data/2018/acs/acs5/variables.html for variable definitions
+      - ACS_TABLES=B01003_001E  # See https://api.census.gov/data/2017/acs/acs5/variables.html for variable definitions
     command: make -e

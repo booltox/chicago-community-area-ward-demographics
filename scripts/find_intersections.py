@@ -6,13 +6,15 @@ Expected output: Array of GeoJSON-like objects with "community_area" and "ward"
 properties.
 '''
 import json
-import sys
 import os
+import sys
 
 from osgeo import ogr
 
 
-_, community_area, wards = sys.argv
+# Default to Hermosa and its wards.
+community_area = os.environ.get('COMMUNITY_AREA', 'Hermosa')
+wards = os.environ.get('WARDS', '26,31,35,36')
 
 pwd = os.path.abspath(os.path.dirname(__file__))
 
@@ -36,7 +38,7 @@ def feature_from_array(array, prop, value):
     else:
         return feature
 
-with open(os.path.join(pwd, '..', 'chicago_community_areas.geojson'), 'r') as f:
+with open(os.path.join(pwd, '..', 'raw', 'chicago_community_areas.geojson'), 'r') as f:
     ca_geojson = json.load(f)
 
     ca_feature = feature_from_array(ca_geojson['features'], 'community', community_area)
@@ -47,7 +49,7 @@ with open(os.path.join(pwd, '..', 'chicago_community_areas.geojson'), 'r') as f:
 
 intersections = []
 
-with open(os.path.join(pwd, '..', 'chicago_wards.geojson'), 'r') as f:
+with open(os.path.join(pwd, '..', 'raw', 'chicago_wards.geojson'), 'r') as f:
     ward_geojson = json.load(f)
 
     for ward in wards.split(','):
