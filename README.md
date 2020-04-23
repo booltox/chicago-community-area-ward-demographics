@@ -7,10 +7,15 @@ Discover how demographics in your Chicago neighborhood break down by ward.
 This repository contains configurable scripts to generate demographic data
 from the intersection of Chicago community areas and overlapping wards.
 
-These scripts were developed in support of the **Hermosa Neighborhood
-Association**, so they default to calculating the total population of Hermosa
-broken down by ward using 5-year estimates from the 2017 [American Community
-Survey](https://www.census.gov/data/developers/data-sets/acs-5year.html).
+These scripts were developed in support of the [**Hermosa Neighborhood
+Association**](https://www.ourhermosa.org/), so they default to calculating the
+total population of Hermosa broken down by ward using 5-year estimates from the
+2017 [American Community Survey](https://www.census.gov/data/developers/data-sets/acs-5year.html).
+
+<div align="center">
+  <img alt="Wards overlapped by Hermosa" src="images/hermosa_wards.png" width="250" /><br />
+  <small><em>Wards overlapped by the Hermosa community area</em></small>
+</div><br />
 
 You can view the generated dataset [here](finished/population_by_ward.csv). You
 can also customize the scripts to retrieve different demographics for other
