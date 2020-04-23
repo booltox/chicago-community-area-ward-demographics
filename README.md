@@ -63,11 +63,11 @@ make clean && docker-compose run --rm data
 **To retrieve additional tables** from the American Community Survey, consult
 the ACS variable definition [here](https://api.census.gov/data/2017/acs/acs5/variables.html).
 Once you've identified which tables you'd like, update the value of `ACS_TABLES`
-in [line 17 of `docker-compose.yml`](docker-compose.yml#L17). To retrieve
+in [line 18 of `docker-compose.yml`](docker-compose.yml#L18). To retrieve
 multiple tables, separate them with commas, e.g., `B01001B_005E,B01001B_006E`.
 
 **To retrieve information for a different community area and wards**, update
-the values of `COMMUNITY_AREA` and `WARDS` in [lines 15 and 16 of `docker-compose.yml`](docker-compose.yml#L15-16).
+the values of `COMMUNITY_AREA` and `WARDS` in [lines 16 and 17 of `docker-compose.yml`](docker-compose.yml#L16-L17).
 Be sure to enclose your community area in quotes if it contains a space, e.g.,
 `"Humboldt Park"`.
 
