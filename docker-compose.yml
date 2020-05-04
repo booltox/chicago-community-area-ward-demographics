@@ -13,7 +13,8 @@ services:
     # Update these variables if you want to generate demographics from a
     # different set of community areas and wards.
     environment:
-      - COMMUNITY_AREA=Hermosa  # Enclose name "in quotes" if it contains a space
+      - COMMUNITY_AREA=hermosa # Enclose name "in quotes" if it contains a space
       - WARDS=26,31,35,36
+      - ZIPCODES=60639,60641,60647
       - ACS_TABLES=B01003_001E  # See https://api.census.gov/data/2017/acs/acs5/variables.html for variable definitions
     command: make -e

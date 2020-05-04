@@ -19,13 +19,13 @@ from secrets import CENSUS_API_KEY
 tables = os.environ.get('ACS_TABLES', 'B01003_001E').split(',')
 
 writer = csv.writer(sys.stdout)
-writer.writerow(['community_area', 'ward', *tables])
+writer.writerow(['community_area', 'zip', *tables])
 
 c = Census(CENSUS_API_KEY, year=2017)
 
 for feature in json.load(sys.stdin):
     community_area = feature['properties']['community_area'].title()
-    ward = feature['properties']['ward']
+    zipcode = feature['properties']['zipcode']
 
     table_values = []
 
@@ -40,4 +40,4 @@ for feature in json.load(sys.stdin):
 
         table_values.append(round(count, 0))
 
-        writer.writerow([community_area, ward, *table_values])
+        writer.writerow([community_area, zipcode, *table_values])

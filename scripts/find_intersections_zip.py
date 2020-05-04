@@ -50,21 +50,40 @@ with open(os.path.join(pwd, '..', 'raw', 'chicago_community_areas.geojson'), 'r'
 
 intersections = []
 
-with open(os.path.join(pwd, '..', 'raw', 'chicago_wards.geojson'), 'r') as f:
-    ward_geojson = json.load(f)
+# with open(os.path.join(pwd, '..', 'raw', 'chicago_wards.geojson'), 'r') as f:
+#     ward_geojson = json.load(f)
 
-    for ward in wards.split(','):
-        ward_feature = feature_from_array(ward_geojson['features'], 'ward', ward)
+#     for ward in wards.split(','):
+#         ward_feature = feature_from_array(ward_geojson['features'], 'ward', ward)
 
-        ward_geom = ogr.CreateGeometryFromJson(
-            json.dumps(ward_feature['geometry'])
+#         ward_geom = ogr.CreateGeometryFromJson(
+#             json.dumps(ward_feature['geometry'])
+#         )
+
+#         intersection = json.loads(ca_geom.Intersection(ward_geom).ExportToJson())
+
+#         intersection['properties'] = {
+#             'community_area': community_area,
+#             'ward': ward,
+#         }
+
+#         intersections.append(intersection)
+
+with open(os.path.join(pwd, '..', 'raw', 'chicago_zipcodes.geojson'), 'r') as f:
+    zipcodes_geojson = json.load(f)
+
+    for zipcode in zipcodes.split(','):
+        zipcode_feature = feature_from_array(zipcodes_geojson['features'], 'zip', zipcode)
+
+        zipcode_geom = ogr.CreateGeometryFromJson(
+            json.dumps(zipcode_feature['geometry'])
         )
 
-        intersection = json.loads(ca_geom.Intersection(ward_geom).ExportToJson())
+        intersection = json.loads(ca_geom.Intersection(zipcode_geom).ExportToJson())
 
         intersection['properties'] = {
             'community_area': community_area,
-            'ward': ward,
+            'zipcode': zipcode,
         }
 
         intersections.append(intersection)
